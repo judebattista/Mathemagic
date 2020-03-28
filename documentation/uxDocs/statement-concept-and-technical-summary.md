@@ -1,4 +1,5 @@
 # Statement concept and technical summary
+(Originally from CS344: Human-computer Interaction, Fall 2019)
 
 ## Product Concept Statement
 - Technical document, press release, blog post, or README
