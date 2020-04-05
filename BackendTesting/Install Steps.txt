@@ -1,0 +1,74 @@
+
+{ NOTES FROM: https://www.youtube.com/watch?v=uZgRbnIsgrA }
+
+{
+    QUICK START GUIDE:
+    In one git bash terminal, run this:
+    {
+        cd backend
+        source venv/Scripts/activate
+        {
+            python src/manage.py makemigrations
+            python src/manage.py migrate
+        }
+        python src/manage.py runserver
+    }
+
+    In another, run this:
+    {
+        cd backend/gui
+        npm start
+    }
+}
+
+
+python -m pip install --upgrade pip
+python -m venv ./venv
+source venv/Scripts/activate
+pip install django
+pip install djangorestframework
+django-admin startproject SWENGDjangoBackend
+
+{Install three extensions for VS code from here: https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/}
+
+pip install pep8
+pip install autopep8
+pip install pylint
+
+{modify settings.json to have correct settings - did this even work?}
+
+{install node: https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-setup.zip}
+
+{restart visual studio after this...}
+{also might need to start visual studio as administrator}
+
+nvm install 12.16.1
+nvm use 12.16.1
+
+{in ./frontend}
+
+npm install -g create-react-app
+npx create-react-app gui
+
+python manage.py migrate
+
+python manage.py runserver
+
+python manage.py startapp articles
+
+python manage.py makemigrations {after you make a change to a model}
+python manage.py migrate {?}
+
+python manage.py createsuperuser
+
+{
+    admin
+    1234
+    rrutherford20@my.whitworth.edu
+}
+
+{cd into frontend/gui}
+
+npm start
+
+{C:/Python/python -m pip install -U pycodestyle --user}
