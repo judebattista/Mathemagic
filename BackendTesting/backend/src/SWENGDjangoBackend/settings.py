@@ -129,3 +129,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+ALLOWED_HOSTS = [ 'localhost', '52.37.100.134', '172.31.40.19']
