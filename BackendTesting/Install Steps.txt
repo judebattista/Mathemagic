@@ -1,16 +1,38 @@
 
 { NOTES FROM: https://www.youtube.com/watch?v=uZgRbnIsgrA }
+	ssh Student@52.37.100.134
+	1qa2ws#ED44
+	. BackendTesting/venv/bin/activate
+	sudo python BackendTesting/Mathemagic/BackendTesting/backend/src manage.py runserver 172.31.40.19:8000
+{
+REALLY QUICK START:
+	
+}
+
+{	
+INSTALL STEPS:
+	sudo -i
+	sudo apt install python 3.7-venv 	# Install the venv
+	sudo python -m venv venv		# Make the venv
+	. venv/bin/activate			# Source the venv
+	sudo pip install django			# Install django
+	sudo pip install djangorestframework	# Install the rest framework
+	cd ~
+	sudo mkdir ~/.nvm
+	sudo git clone https://github.com/nvm-sh/nvm.git "~/.nvm"
+	cd .nvm
+	git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+	. ~/.nvm/nvm.sh
+	{Add some things to .bashrc and .profile in ~}
+	sudo git clone https://github.com/judebattista/Mathemagic.git
+	cd Mathemagic
+	sudo git checkout BackendTesting
+	sudo python manage.py runserver 52.37.100.134:8000
+	{docker-compose up}
+}
 
 {
-	make a venv
-	source the venv
-	pip install docker-compose
-	{intall docker}
-	pull the github repo
-	docker-compose up
-}
-{
-    QUICK START GUIDE:
+    QUICK START GUIDE (For personal use on PC):
     In one git bash terminal, run this:
     {
         cd backend
@@ -80,4 +102,10 @@ python manage.py createsuperuser
 npm start
 
 {C:/Python/python -m pip install -U pycodestyle --user}
+
+npm install antd --save
+npm install axios --save
+npm install react-router-dom --save
+
+pip install django-cors-headers
 
