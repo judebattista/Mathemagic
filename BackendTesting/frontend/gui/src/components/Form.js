@@ -13,7 +13,7 @@ class CustomForm extends React.Component {
 
     handleFormSubmit = (event, requestType, articleID) => {
         
-        event.preventDefault();
+        //event.preventDefault();
 
         console.log("Test")
         
