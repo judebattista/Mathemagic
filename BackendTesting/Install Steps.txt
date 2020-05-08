@@ -109,3 +109,11 @@ npm install react-router-dom --save
 
 pip install django-cors-headers
 
+npm i --save react-redux
+npm i --save redux redux-thunk
+
+pip install django-rest-auth
+
+python manage.py migrate
+
+pip install django-allauth

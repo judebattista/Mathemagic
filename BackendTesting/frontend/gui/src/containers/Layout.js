@@ -1,22 +1,42 @@
 import { Layout, Menu, Breadcrumb } from 'antd';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import * as actions from '../store/actions/auth';
 
 const { Header, Content, Footer } = Layout;
 
-const CustomLayout = (props) => {
-    return (  
+class CustomLayout extends React.Component {
+    render() { 
+        console.log(this.props.isAuthenticated);
+        return (  
         <Layout className="layout">
             <Header>
             <div className="logo" />
             <Menu 
                 theme="dark" 
                 mode="horizontal" 
-                defaultSelectedKeys={['2']}
+                defaultSelectedKeys={['1']}
             >
-                <Menu.Item key="1">nav 1</Menu.Item>
-                <Menu.Item key="2">nav 2</Menu.Item>
-                <Menu.Item key="3">nav 3</Menu.Item>
+            <Menu.Item key="1">
+                    <Link to="/">Posts</Link>
+            </Menu.Item>
+            {
+                this.props.isAuthenticated ?
+
+
+                <Menu.Item key="3" onClick={this.props.logout}>
+                    Logout
+                </Menu.Item>
+
+                :
+
+                <Menu.Item key="2">
+                    <Link to="/login">Login</Link>
+                </Menu.Item>
+
+            }
             </Menu>
             </Header>
             <Content style={{ padding: '0 50px' }}>
@@ -25,12 +45,18 @@ const CustomLayout = (props) => {
                 <Breadcrumb.Item><Link to="/">List</Link></Breadcrumb.Item>
             </Breadcrumb>
             <div className="site-layout-content">
-                {props.children}
+                {this.props.children}
             </div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>
-    );
+    );}
 }
 
-export default CustomLayout;
+const mapDispatchToProps = dispatch => {
+    return {
+        logout: () => dispatch(actions.logout())
+    };
+};
+
+export default withRouter(connect(null, mapDispatchToProps)(CustomLayout));
