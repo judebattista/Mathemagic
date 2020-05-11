@@ -35,7 +35,7 @@ book = person('Derrial Book')
 simon = person('Simon Tam')
 river = person('River Tam')
 
-persons = [mal, zoe, wash, inara, kaylee, jayne, book, simon, river]
+persons = [mal] #, zoe, wash, inara, kaylee, jayne, book, simon, river]
 
 piloting = Meeting(800, 1230, 0, [mal, zoe, wash])
 infirmary = Meeting(1100, 1300, 0, [simon, river, book, inara])
@@ -70,11 +70,11 @@ def magicAlgorithm(people, meetingsAlreadyInExistence, meetingsToBeScheduled):
             index = dateTimeToIndex(i, time)
             G.add_node(index)
             for p in people:
-                G.add_node(p)
-                G.add_edge(p, index)
+                G.add_node(p.name)
+                G.add_edge(p.name, index)
     
 
-    nx.draw(G)
+    nx.draw(G, with_labels=True)
     plt.show()
     #temp = edge(Alice, 0, timeToIndex(800))
     #edges = [temp]
