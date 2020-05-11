@@ -76,6 +76,8 @@ def magicAlgorithm(people, meetingsAlreadyInExistence, meetingsToBeScheduled):
 
     nx.draw(G, with_labels=True)
     plt.show()
+
+    
     #temp = edge(Alice, 0, timeToIndex(800))
     #edges = [temp]
 
