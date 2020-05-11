@@ -10,8 +10,8 @@ const Article = (props) => {
             <List.Item>
             <List.Item.Meta
                 avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                title={<a href={`/${item.id}`}>{item.title}</a>}
-                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                title={<a href={`/articles/${item.id}`}>{item.title}</a>}
+                description={item.content}
             />
             </List.Item>
         )}

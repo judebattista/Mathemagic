@@ -10,6 +10,7 @@ const { Header, Content, Footer } = Layout;
 class CustomLayout extends React.Component {
     render() { 
         console.log(this.props.isAuthenticated);
+
         return (  
         <Layout className="layout">
             <Header>
@@ -20,10 +21,10 @@ class CustomLayout extends React.Component {
                 defaultSelectedKeys={['1']}
             >
             <Menu.Item key="1">
-                    <Link to="/">Posts</Link>
+                <Link to="/">Posts</Link>
             </Menu.Item>
             {
-                this.props.isAuthenticated ?
+                (this.props.isAuthenticated === 'true') ?
 
 
                 <Menu.Item key="3" onClick={this.props.logout}>
