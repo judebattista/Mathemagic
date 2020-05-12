@@ -24,14 +24,14 @@ class CustomForm extends React.Component {
         // eslint-disable-next-line
         switch ( requestType ) {
             case 'post': //
-                return axios.post('http://127.0.0.1:8000/api/',{
+                return axios.post('http://52.37.100.134:8000/api/',{
                     title: title,
                     content: content
                 })
                 .then(res => console.log(res))
                 .catch(error => console.err(error));
             case 'put':
-                return axios.put(`http://127.0.0.1:8000/api/${articleID}/`, {
+                return axios.put(`http://52.37.100.134:8000/api/${articleID}/`, {
                     title: title,
                     content: content
                 })
