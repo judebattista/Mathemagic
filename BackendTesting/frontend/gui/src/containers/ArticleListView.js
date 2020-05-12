@@ -14,7 +14,7 @@ class ArticleList extends React.Component {
     }
 
     componentDidMount() { // called every time the component is mounted
-        axios.get('http://127.0.0.1:8000/api/') //api URL here
+        axios.get('http://52.37.100.134:8000/api/') //api URL here
             .then(res => {
                 this.setState({
                     articles: res.data
