@@ -44,7 +44,7 @@ class MeetingViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(res, many=True)
         return Response(serializer.data)
 
-    @action(detail=False)
+    @action(methos=['post'], detail=False)
     def algorithm(self, request, pk=None):
         print(request.data)
         return Response(request.data)
