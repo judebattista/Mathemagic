@@ -32,7 +32,7 @@ class MeetingViewSet(viewsets.ModelViewSet):
         #   request.user.groups.all()
         #   Assume that there is some way to pass this through/get it...
         users = User.objects.filter(groups__name="EthicsBowl")
-        res = Meeting.objects.filter(people__username__in=[x.username for x in list(users)])
+        res = Meeting.objects.filter(people__in=users)
         page = self.paginate_queryset(res)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
