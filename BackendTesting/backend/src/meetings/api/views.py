@@ -22,6 +22,25 @@ class MeetingViewSet(viewsets.ModelViewSet):
 
         serializer = self.get_serializer(res, many=True)
         return Response(serializer.data)
+    
+    # https://stackoverflow.com/questions/46404051/send-object-with-axios-get-request
+    @action(detail=False)
+    def meetings_by_group(self, request, pk=None):
+        groupName = request.data.get('group_name')
+
+        # Groups a user is in can be done by:
+        #   request.user.groups.all()
+        #   Assume that there is some way to pass this through/get it...
+        users = User.objects.filter(groups__name=groupName)
+        res = Meeting.objects.filter(people__username__in=[x.username for x in list(users)])
+        page = self.paginate_queryset(res)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(res, many=True)
+        return Response(serializer.data)
+
 
 
 
