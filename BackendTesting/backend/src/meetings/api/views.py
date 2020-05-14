@@ -26,7 +26,7 @@ class MeetingViewSet(viewsets.ModelViewSet):
     # https://stackoverflow.com/questions/46404051/send-object-with-axios-get-request
     @action(detail=False)
     def meetings_by_group(self, request, pk=None):
-        print(request.user.goupr.all())
+        print(request.user.group.all())
         # groupName = request.data.get('group_name')
 
         # Groups a user is in can be done by:
@@ -43,6 +43,11 @@ class MeetingViewSet(viewsets.ModelViewSet):
 
         serializer = self.get_serializer(res, many=True)
         return Response(serializer.data)
+
+    @action(detail=False)
+    def algorithm(self, request, pk=None):
+        print(request.data)
+        return Response(request.data)
 
 
 
