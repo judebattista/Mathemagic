@@ -1,3 +1,15 @@
+DJANGO - python manage.py runserver 172.31.40.19:8000
+
+
+REACT - cd frontend/gui => npm start
+
+
+
+
+
+
+
+
 
 { NOTES FROM: https://www.youtube.com/watch?v=uZgRbnIsgrA }
 	ssh Student@52.37.100.134
@@ -112,7 +124,7 @@ pip install django-cors-headers
 npm i --save react-redux
 npm i --save redux redux-thunk
 
-pip install django-rest-auth
+pip install django-rest-authn
 
 python manage.py migrate
 

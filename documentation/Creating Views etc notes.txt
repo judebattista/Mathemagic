@@ -1,0 +1,13 @@
+TODO:
+	- Modify existing articles api calls to be representative of different name in urls.py
+
+pyhton manage.py startapp <app_name>
+
+add <app_name> to INSTALLED_APPS in settings
+
+# Modify REST_FRAMEWORK in settings to change permissions of api calls, currently it is allow any...
+
+# Create the model in models.py in <app_name> folder
+
+# In the app, modify admin.py, then run [ "python manage.py makemigrations", "python manage.py migrate"]
+
