@@ -46,7 +46,13 @@ class MeetingViewSet(viewsets.ModelViewSet):
     @action(methods=['post'], detail=False)
     def algorithm(self, request, pk=None):
         print(request.data)
-        return Response(request.data)
+        # This is the law and so the law is written:
+        #       in the incoming request data, we will have the following:
+        #      
+        meetings = request.data.meetings
+
+        
+        return Response(meetings)
 
     # Just want to return all the users and information on them,
     # This is definitely insecure, and should be changed
