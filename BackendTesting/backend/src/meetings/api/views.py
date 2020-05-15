@@ -49,7 +49,7 @@ class MeetingViewSet(viewsets.ModelViewSet):
 
     # Just want to return all the users and information on them,
     # This is definitely insecure, and should be changed
-    @action(methods=['post'], detail=False)
+    @action(methods=['get'], detail=False)
     def all_users(self, request, pk=None):
         res = User.objects.all()
         page = self.paginate_queryset(res)
