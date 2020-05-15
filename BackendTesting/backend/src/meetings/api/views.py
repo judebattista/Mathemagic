@@ -6,6 +6,7 @@ from rest_framework import viewsets
 from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework.decorators import action
+from AlgortihmTesting import 
 
 class MeetingViewSet(viewsets.ModelViewSet):
     serializer_class = MeetingSerializer
@@ -51,7 +52,18 @@ class MeetingViewSet(viewsets.ModelViewSet):
         #      
         meetings = request.data['meetings']
         
-        return Response(meetings)
+        uIDs = [x["user_id"] for x in meetings]
+
+        uniqueUIDs = []
+
+        for x in uIDs:
+            for y in x:
+                if y not in uniqueUIDs:
+                    uniqueUIDs.append(y)
+
+        userList = User.objects.filter(id__in=uniqueUIDs)
+        
+        return Response(userList)
 
     # Just want to return all the users and information on them,
     # This is definitely insecure, and should be changed
