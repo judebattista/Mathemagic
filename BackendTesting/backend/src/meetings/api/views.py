@@ -61,9 +61,17 @@ class MeetingViewSet(viewsets.ModelViewSet):
                 if y not in uniqueUIDs:
                     uniqueUIDs.append(y)
 
-        userList = User.objects.filter(id__in=uniqueUIDs)
+        res = User.objects.filter(id__in=uniqueUIDs)
+
+        user_serializer = UserSerializer
         
-        return Response(userList)
+        page = self.paginate_queryset(res)
+        if page is not None:
+            serializer = user_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = user_serializer(res, many=True)
+        return Response(serializer.data)
 
     # Just want to return all the users and information on them,
     # This is definitely insecure, and should be changed
