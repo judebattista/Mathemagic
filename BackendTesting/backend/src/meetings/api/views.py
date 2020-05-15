@@ -49,7 +49,7 @@ class MeetingViewSet(viewsets.ModelViewSet):
         # This is the law and so the law is written:
         #       in the incoming request data, we will have the following:
         #      
-        meetings = request.data.meetings
+        meetings = request.data#.meetings
 
         
         return Response(meetings)
