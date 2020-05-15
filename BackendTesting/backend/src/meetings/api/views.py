@@ -54,10 +54,10 @@ class MeetingViewSet(viewsets.ModelViewSet):
         res = User.objects.all()
         page = self.paginate_queryset(res)
         if page is not None:
-            serializer = self.get_serializer(page, many=True)
+            serializer = User.get_serializer(page, many=True)
             return self.get_paginated_response(serializer.data)
 
-        serializer = self.get_serializer(res, many=True)
+        serializer = User.get_serializer(res, many=True)
         return Response(serializer.data)
 
 
