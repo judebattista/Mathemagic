@@ -33,9 +33,7 @@ class MeetingViewSet(viewsets.ModelViewSet):
         #   request.user.groups.all()
         #   Assume that there is some way to pass this through/get it...
         users = User.objects.filter(groups__name="EthicsBowl")
-        print(users)
         res = Meeting.objects.filter(people__in=users)
-        print(res)
         page = self.paginate_queryset(res)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
@@ -44,11 +42,23 @@ class MeetingViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(res, many=True)
         return Response(serializer.data)
 
-    @action(methos=['post'], detail=False)
+    @action(methods=['post'], detail=False)
     def algorithm(self, request, pk=None):
         print(request.data)
         return Response(request.data)
 
+    # Just want to return all the users and information on them,
+    # This is definitely insecure, and should be changed
+    @action(methods=['post'], detail=False)
+    def all_users(self, request, pk=None):
+        res = User.objects.all()
+        page = self.paginate_queryset(res)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(res, many=True)
+        return Response(serializer.data)
 
 
 

@@ -11,3 +11,14 @@ add <app_name> to INSTALLED_APPS in settings
 
 # In the app, modify admin.py, then run [ "python manage.py makemigrations", "python manage.py migrate"]
 
+# You can now modify different <app_name> objects through http://<ip_address>:800/admin/
+
+# Serializers are a way to translate between json data and database obj, and we use serializers in the diff views
+
+# Once you have instantiated the views, move to urls
+
+curl -i -H "Accept: meeting/json" '52.37.100.134:8000/api/Meetings/meetings_by_group/{"group_name":"Ethics\ Bowl"}'
+
+curl -d "test=test1&else=else1" -X POST http://52.37.100.134:8000/api/Meetings/algorithm/
+
+
